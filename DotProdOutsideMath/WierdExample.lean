@@ -46,10 +46,10 @@ theorem ker_mulVecLin_conjTranspose_mul_self_R_or_C (A : Matrix m n K) :
   · intro h
     rw [h, mulVec_zero]
 
-open FiniteDimensional
+open FiniteDimensional Matrix
 
 theorem rank_conjTranspose_mul_self_R_or_C (A : Matrix m n K) : (Aᴴ ⬝ A).rank = A.rank := by
-  dsimp only [rank]
+  dsimp only [Matrix.rank]
   refine' add_left_injective (finrank K (LinearMap.ker (mulVecLin A))) _
   dsimp only
   trans finrank K { x // x ∈ LinearMap.range (mulVecLin (Aᴴ ⬝ A)) } +
@@ -59,7 +59,7 @@ theorem rank_conjTranspose_mul_self_R_or_C (A : Matrix m n K) : (Aᴴ ⬝ A).ran
   · simp only [LinearMap.finrank_range_add_finrank_ker]
 
 variable {R: Type}[Field R][PartialOrder R][StarOrderedRing R]
-theorem rank_conjTranspose_mul_self (A : Matrix m n R) : (Aᴴ ⬝ A).rank = A.rank := by
+theorem NotInMathlib_rank_conjTranspose_mul_self (A : Matrix m n R) : (Aᴴ ⬝ A).rank = A.rank := by
   dsimp only [rank]
   refine' add_left_injective (finrank R (LinearMap.ker (mulVecLin A))) _
   dsimp only
